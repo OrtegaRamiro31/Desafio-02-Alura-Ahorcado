@@ -1,0 +1,38 @@
+:root {
+  --azulOscuro: #0a3871;
+  --azulClaro: #f3f5fc;
+  --grisClaro: #d8dfe8;
+  --grisLigero: #e5e5e5;
+  --grisOscuro: #495057;
+  --blanco: #ffffff;
+  --negro: #000000;
+}
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  font-size: 16px;
+}
+
+.contenedor-logo {
+  margin: 5rem;
+}
+
+.botones-inicio {
+  display: inline-block;
+}
+
+.botones-inicio:first-child {
+  background-color: var(--azulOscuro);
+  color: var(--blanco);
+  padding: 3rem;
+  border-radius: 2.4rem;
+}
