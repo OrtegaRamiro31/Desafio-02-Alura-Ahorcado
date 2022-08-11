@@ -26,13 +26,42 @@ body {
   margin: 5rem;
 }
 
+.contenedor-botones-principales {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 50%;
+  text-align: center;
+}
+
 .botones-inicio {
-  display: inline-block;
+  display: block;
+  padding: 3rem;
+  border-radius: 2.4rem;
+  border: 1px solid var(--azulOscuro);
+  text-decoration: none;
+  text-align: center;
+  margin: auto;
 }
 
 .botones-inicio:first-child {
   background-color: var(--azulOscuro);
   color: var(--blanco);
-  padding: 3rem;
-  border-radius: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.botones-inicio:last-child {
+  background-color: var(--blanco);
+  color: var(--azulOscuro);
+}
+
+@media (min-width: 768px) {
+  .botones-inicio:first-child {
+    width: 32rem;
+  }
+
+  .botones-inicio:last-child {
+    width: 28rem;
+  }
 }
