@@ -21,11 +21,25 @@
       </div>
     </header>
 
-    <section class="contenedor-botones-principales">
-      <a class="botones-inicio" href="#">Iniciar juego</a>
-      <a class="botones-inicio" href="nuevapalabra.html"
-        >Agregar nueva palabra</a
-      >
+    <section class="contenedor-palabra-modificada">
+      <textarea
+        class="palabra-nueva"
+        cols="10"
+        rows="10"
+        placeholder="Ingrese una palabra"
+        required
+      /></textarea>
+
+      <div class="contenedor-botones-advertencia">
+        <div class="advertencia">
+          <img loading="lazy" src="img/Admiracion.png" alt="Signo admiración" />
+          <p>Máx. de 8 letras</p>
+        </div>
+        <div class="contenedor-botones">
+          <a class="botones-inicio" href="#">Guardar y empezar</a>
+          <a class="botones-inicio" href="index.html">Cancelar</a>
+        </div>
+      </div>
     </section>
   </body>
 </html>
