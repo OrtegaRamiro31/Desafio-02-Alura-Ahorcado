@@ -142,3 +142,42 @@ body {
     width: 33.2rem;
   }
 }
+
+/** nuevojuego.html **/
+.contenedor-juego {
+  height: 70rem;
+}
+.canva-ahorcado {
+  height: 100%;
+  background-color: red;
+}
+.lineas-letras {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .lineas-letras {
+    width: 50%;
+  }
+}
+.lineas {
+  width: 4rem;
+  height: 0.4rem;
+  background-color: var(--azulOscuro);
+}
+.contenedor-juego .contenedor-botones {
+  display: block;
+}
+@media (min-width: 768px) {
+  .contenedor-juego .contenedor-botones {
+    display: flex;
+    gap: 2rem;
+  }
+}
+/* .lineas:last-child {
+  margin: 2rem;
+  background-color: blue;
+} */
