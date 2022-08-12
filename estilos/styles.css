@@ -133,7 +133,6 @@ body {
     .contenedor-botones {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
   }
 }
 
@@ -145,6 +144,7 @@ body {
 @media (min-width: 768px) {
   .contenedor-palabra-modificada .boton {
     width: 33.2rem;
+    margin: 0 1rem;
   }
 }
 
@@ -153,13 +153,13 @@ body {
   height: 70rem;
 }
 .canva-ahorcado {
-  height: 100%;
+  height: 80%;
   background-color: red;
 }
 .lineas-letras {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: auto;
 }
@@ -168,10 +168,27 @@ body {
     width: 50%;
   }
 }
+.contenedor-letra-linea {
+  text-align: center;
+  line-height: 0;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
 .lineas {
   width: 4rem;
   height: 0.4rem;
   background-color: var(--azulOscuro);
+}
+.letras-erroneas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+
+.letra-erronea {
+  margin-right: 1rem;
 }
 .contenedor-juego .contenedor-botones {
   display: block;
@@ -179,10 +196,5 @@ body {
 @media (min-width: 768px) {
   .contenedor-juego .contenedor-botones {
     display: flex;
-    gap: 2rem;
   }
 }
-/* .lineas:last-child {
-  margin: 2rem;
-  background-color: blue;
-} */
