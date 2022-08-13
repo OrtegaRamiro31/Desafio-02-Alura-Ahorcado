@@ -21,6 +21,7 @@ body {
   margin: 0;
   font-size: 16px;
   background-color: var(--azulClaro);
+  font-family: "Inter", sans-serif;
 }
 
 .contenedor-logo {
@@ -84,7 +85,6 @@ body {
 
 .palabra-nueva {
   border: none;
-  font-family: "Inter", sans-serif;
   font-size: 3.2rem;
   background-color: var(--azulClaro);
   margin-left: 2rem;
@@ -102,10 +102,14 @@ body {
   color: var(--azulOscuro);
 }
 
-.contenedor-palabra-modificada a {
+.contenedor-palabra-modificada a,
+.contenedor-palabra-modificada button {
   background-color: var(--azulOscuro);
   color: var(--blanco);
   margin-bottom: 2rem;
+}
+.contenedor-palabra-modificada button:hover {
+  cursor: pointer;
 }
 .advertencia {
   display: flex;
@@ -154,12 +158,13 @@ body {
 }
 .canva-ahorcado {
   height: 80%;
-  background-color: red;
+  width: 100%;
+  /* background-color: red; */
 }
 .lineas-letras {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin: auto;
 }
@@ -171,8 +176,22 @@ body {
 .contenedor-letra-linea {
   text-align: center;
   line-height: 0;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
+  height: 5rem;
+  /* margin-bottom: 1rem;
+  margin-right: 1rem; */
+  margin: 0 0.3rem 1rem 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+@media (min-width: 768px) {
+  .contenedor-letra-linea {
+    /* margin: 0 1rem 0 1rem; */
+    gap: 1;
+    /* margin-right: 1rem; */
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 .lineas {
   width: 4rem;
@@ -198,3 +217,5 @@ body {
     display: flex;
   }
 }
+
+/* Canva */
