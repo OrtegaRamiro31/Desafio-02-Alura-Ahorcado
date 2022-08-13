@@ -17,11 +17,19 @@ html {
 *:after {
   box-sizing: inherit;
 }
+
 body {
   margin: 0;
   font-size: 16px;
-  background-color: var(--azulClaro);
+  /* background-color: var(--azulClaro); */
+  background-image: linear-gradient(
+    160deg,
+    rgb(0, 147, 233) 0%,
+    rgb(128, 208, 199) 100%
+  );
+  background-repeat: no-repeat;
   font-family: "Inter", sans-serif;
+  min-height: 100vh;
 }
 
 .contenedor-logo {
@@ -87,10 +95,10 @@ body {
   border: none;
   font-size: 3.2rem;
   background-color: var(--azulClaro);
-  margin-left: 2rem;
   resize: none;
   height: auto;
   overflow: hidden;
+  background-color: transparent;
 }
 @media (min-width: 768px) {
   .palabra-nueva {
