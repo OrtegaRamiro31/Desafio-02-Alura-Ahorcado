@@ -16,6 +16,7 @@ let caracteresErroneos = [];
 let intentos = 0;
 let letrasPorEncontrar = 0;
 let finJuego = false;
+let dispositivoMovil = false;
 
 /* Evento de botón de jugar */
 btnIniciar.addEventListener("click", () => {
@@ -55,25 +56,31 @@ btnIniciar.addEventListener("click", () => {
         : recorrerPalabra(palabra, e.key.toUpperCase());
     });
 
-    /* Recorremos cada elemento del array "letras" que se encuentra en teclado.js y contiene todas las letras del abecedario */
-    letras.forEach((i) => {
-      // Seleccionamos del DOM el elemento que contenga la clase letra concatenado con su letra correspondiente
-      document.querySelector(".letra" + i).addEventListener("click", (e) => {
-        // Si se ha llegado al fin del juego, detenemos el evento, sino, llamamos la función recorrerPalabra.
-        finJuego
-          ? e.preventDefault()
-          : recorrerPalabra(palabra, e.target.textContent.toUpperCase());
-        // console.log(e.target.textContent.toUpperCase());
+    if (dispositivoMovil) {
+      // console.log("entre");
+      /* Recorremos cada elemento del array "letras" que se encuentra en teclado.js y contiene todas las letras del abecedario */
+      letras.forEach((i) => {
+        // Seleccionamos del DOM el elemento que contenga la clase letra concatenado con su letra correspondiente
+        document.querySelector(".letra" + i).addEventListener("click", (e) => {
+          // Si se ha llegado al fin del juego, detenemos el evento, sino, llamamos la función recorrerPalabra.
+          finJuego
+            ? e.preventDefault()
+            : recorrerPalabra(palabra, e.target.textContent.toUpperCase());
+          // console.log(e.target.textContent.toUpperCase());
+        });
       });
-    });
+    }
   }
 });
 
 function detectarResolucion() {
-  limpiarTeclado();
-  const mq = window.matchMedia("(min-width: 1024px)");
+  limpiarTeclado(); // Limpiamos el tecaldo
+  const mq = window.matchMedia("(min-width: 1024px)"); // Detectamos si la resolución mínima es de 1024px
+
+  // Si la resolución mínima no es de 1024 (es decir, que sea una resolución menor)...
   if (!mq.matches) {
-    mostrarTeclado();
+    mostrarTeclado(); // Muestra el teclado
+    dispositivoMovil = true; // Indica que está usándose un dispositivo móvil
   }
 }
 
