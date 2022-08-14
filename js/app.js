@@ -26,7 +26,7 @@ btnIniciar.addEventListener("click", () => {
   letrasErroneas.innerHTML = ""; // Limpiamos las letras erroneas
 
   let random = Math.ceil(Math.random() * palabras.length - 1); // Generamos un número aleatorio entre 0 y la longitud -1 del arreglo de palabras
-  palabra = palabras[random]; // Se elige una palabra del array en base al número aleatorio
+  palabra = palabras[random].toUpperCase(); // Se elige una palabra del array en base al número aleatorio
 
   letrasPorEncontrar = palabra.length;
   let i = 0; // Inicializamos iterador
@@ -50,7 +50,9 @@ btnIniciar.addEventListener("click", () => {
     // Usamos un evento para el body que detecte cuando se pulsa una tecla
     document.body.addEventListener("keypress", (e) => {
       // Si se ha llegado al fin del juego, detenemos el evento, sino, llamamos la función recorrerPalabra.
-      finJuego ? e.preventDefault() : recorrerPalabra(palabra, e.key);
+      finJuego
+        ? e.preventDefault()
+        : recorrerPalabra(palabra, e.key.toUpperCase());
     });
   }
 });
@@ -147,7 +149,6 @@ const grosor = 5;
 function limpiarCanvas() {
   pincel.clearRect(0, 0, canvas.width, canvas.height); // Limpiamos el canvas.
 }
-
 function mastil() {
   dibujarLinea(200, 550, 450, 550); // Base
 
