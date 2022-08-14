@@ -18,6 +18,8 @@ let letrasPorEncontrar = 0;
 let finJuego = false;
 let dispositivoMovil = false;
 
+personaje(); // Dibujamos inicialmente el personaje
+
 /* Evento de botón de jugar */
 btnIniciar.addEventListener("click", () => {
   inicializarVariables(); // Inicializamos variables en cada click
@@ -164,116 +166,4 @@ function ganar() {
 function perder() {
   console.log("Perdiste");
   finJuego = true;
-}
-/* Colores */
-const darkBlue = "#0A3871";
-const lightBlue = "#F3F5FC";
-
-/* Grosor */
-const grosor = 5;
-
-/* Funciones */
-function limpiarCanvas() {
-  pincel.clearRect(0, 0, canvas.width, canvas.height); // Limpiamos el canvas.
-}
-function mastil() {
-  dibujarLinea(200, 550, 450, 550); // Base
-
-  dibujarLinea(250, 550, 250, 200); // Mastil
-
-  dibujarLinea(250, 200, 400, 200); // Mastil Arriba
-
-  dibujarLinea(400, 200, 400, 250); // Mastil para colgar
-}
-
-function cabeza() {
-  // Colocamos un círculo dentro de otro para simular la cabeza y que no se vea de un solo color.
-  dibujarCirculo(400, 280, 30, darkBlue); // Cabeza con background darkblue
-  dibujarCirculo(400, 280, 25, lightBlue); // Cabeza más pequeña con lightblue
-}
-
-function torso() {
-  dibujarLinea(400, 310, 400, 450); // Dibujamos torso de personaje
-}
-
-function brazoIzquierdo() {
-  dibujarLinea(400, 310, 370, 350); // Dibujamos brazo izquierdo
-}
-
-function brazoDerecho() {
-  dibujarLinea(400, 310, 430, 350); // Dibujamos brazo derecho
-}
-
-function pieIzquierdo() {
-  dibujarLinea(400, 450, 370, 500); // Dibujamos pie izquierdo
-}
-
-function pieDerecho() {
-  dibujarLinea(400, 450, 430, 500); // Dibujamos pie derecho
-}
-
-function dibujarLinea(x1, y1, x2, y2, color = darkBlue) {
-  pincel.beginPath();
-  pincel.moveTo(x1, y1); // Mover a x,y coordenadas
-  pincel.lineTo(x2, y2); // Dibujar línea desde el punto actual hasta otro punto (x,y)
-  pincel.strokeStyle = color; // Añadimos color
-  pincel.lineWidth = grosor; // Grosor de la linea
-  pincel.lineCap = "round"; // Redondeamos la línea
-  pincel.stroke(); // Colocamos el dibujo dentro del canva
-}
-
-function dibujarCirculo(x, y, radio, color = darkBlue) {
-  pincel.beginPath();
-  pincel.fillStyle = color;
-  pincel.beginPath();
-  pincel.arc(x, y, radio, 0, 2 * 3.14);
-  pincel.fill();
-}
-
-function personaje() {
-  mastil();
-  cabeza();
-  torso();
-  brazoIzquierdo();
-  brazoDerecho();
-  pieIzquierdo();
-  pieDerecho();
-}
-
-personaje();
-
-function dibujarErrores() {
-  switch (intentos) {
-    case 7:
-      mastil();
-      break;
-
-    case 6:
-      cabeza();
-      break;
-
-    case 5:
-      torso();
-      break;
-
-    case 4:
-      brazoIzquierdo();
-      break;
-
-    case 3:
-      brazoDerecho();
-      break;
-
-    case 2:
-      pieIzquierdo();
-      break;
-
-    case 1:
-      pieDerecho();
-      perder();
-      break;
-
-    default:
-      console.log("error");
-  }
 }
