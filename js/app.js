@@ -21,7 +21,7 @@ let finJuego = false;
 btnIniciar.addEventListener("click", () => {
   inicializarVariables(); // Inicializamos variables en cada click
   limpiarCanvas(); // Limpiamos el Canvas
-
+  detectarResolucion(); // Detectamos la resolución actual
   lineasLetras.innerHTML = ""; // Limpiamos las líneas de letras existentes
   letrasErroneas.innerHTML = ""; // Limpiamos las letras erroneas
 
@@ -54,8 +54,27 @@ btnIniciar.addEventListener("click", () => {
         ? e.preventDefault()
         : recorrerPalabra(palabra, e.key.toUpperCase());
     });
+
+    /* Recorremos cada elemento del array "letras" que se encuentra en teclado.js y contiene todas las letras del abecedario */
+    letras.forEach((i) => {
+      // Seleccionamos del DOM el elemento que contenga la clase letra concatenado con su letra correspondiente
+      document.querySelector(".letra" + i).addEventListener("click", (e) => {
+        // Si se ha llegado al fin del juego, detenemos el evento, sino, llamamos la función recorrerPalabra.
+        finJuego
+          ? e.preventDefault()
+          : recorrerPalabra(palabra, e.target.textContent.toUpperCase());
+        // console.log(e.target.textContent.toUpperCase());
+      });
+    });
   }
 });
+
+function detectarResolucion() {
+  limpiarTeclado();
+  if (window.screen.width < 1024) {
+    mostrarTeclado();
+  }
+}
 
 function inicializarVariables() {
   juegoActivo = true; // Una vez dado click en Nuevo Juego pasamos a verdadero el valor de juegoActivo
