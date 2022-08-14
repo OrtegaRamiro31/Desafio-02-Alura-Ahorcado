@@ -71,7 +71,8 @@ btnIniciar.addEventListener("click", () => {
 
 function detectarResolucion() {
   limpiarTeclado();
-  if (window.screen.width < 1024) {
+  const mq = window.matchMedia("(min-width: 1024px)");
+  if (!mq.matches) {
     mostrarTeclado();
   }
 }
