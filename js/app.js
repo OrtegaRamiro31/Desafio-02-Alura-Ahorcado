@@ -39,11 +39,8 @@ function inicioJuego() {
   elegirPalabraAleatoria();
   letrasPorEncontrar = palabra.length;
   let i = 0; // Inicializamos iterador
-  console.log(letrasPorEncontrar);
   // Con este ciclo creamos las líneas que indican el número de letras de la palabra
   while (i < palabra.length) {
-    console.log(palabra[i]);
-
     // Agregamos el número de líneas correspondiente al número de caracteres de la palabra
     lineasLetras.innerHTML += `
     <div class="contenedor-letra-linea">
@@ -65,7 +62,6 @@ function inicioJuego() {
     });
 
     if (dispositivoMovil) {
-      // console.log("entre");
       /* Recorremos cada elemento del array "letras" que se encuentra en teclado.js y contiene todas las letras del abecedario */
       letras.forEach((i) => {
         // Seleccionamos del DOM el elemento que contenga la clase letra concatenado con su letra correspondiente
@@ -74,7 +70,6 @@ function inicioJuego() {
           finJuego
             ? e.preventDefault()
             : recorrerPalabra(palabra, e.target.textContent.toUpperCase());
-          // console.log(e.target.textContent.toUpperCase());
         });
       });
     }
