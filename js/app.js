@@ -8,7 +8,8 @@ const modal = document.querySelector(".modal");
 const btnModal = document.querySelector(".btn-modal");
 
 /* Lista de palabras */
-const palabras = ["hola", "soy", "ramiro"];
+// const palabras = ["hola", "soy", "ramiro"];
+let palabras = JSON.parse(localStorage.getItem("palabras"));
 
 /* Variables */
 let juegoActivo = false;
