@@ -24,7 +24,16 @@
     </header>
 
     <section class="contenedor-palabra-modificada contenedor-juego">
-      <canvas class="canva-ahorcado" width="600px" height="600px"></canvas>
+      <div class="canvas-resultado">
+        <canvas class="canva-ahorcado" width="600px" height="600px"></canvas>
+        <p class="resultadofinal"></p>
+      </div>
+
+      <dialog class="modal">
+        <h2 class="titulo-modal"></h2>
+        <p class="texto-modal"></p>
+        <button type="button" class="btn-modal">Salir</button>
+      </dialog>
 
       <div>
         <div class="lineas-letras">
@@ -72,6 +81,12 @@
         </div>
       </div>
     </section>
+
+    <!-- <div class="modal">
+      <h2>Has ganado</h2>
+      <p>Felicidades, has logrado ganar el juego.</p>
+      <button type="button">Salir</button>
+    </div> -->
 
     <script src="js/canvas.js"></script>
     <script src="js/teclado.js"></script>

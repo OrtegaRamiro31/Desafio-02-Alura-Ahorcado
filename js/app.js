@@ -4,6 +4,8 @@ const pincel = canvas.getContext("2d");
 const btnIniciar = document.querySelector(".inicio-juego");
 const lineasLetras = document.querySelector(".lineas-letras");
 const letrasErroneas = document.querySelector(".letras-erroneas");
+const modal = document.querySelector(".modal");
+const btnModal = document.querySelector(".btn-modal");
 
 /* Lista de palabras */
 const palabras = ["hola", "soy", "ramiro"];
@@ -20,17 +22,21 @@ let dispositivoMovil = false;
 
 personaje(); // Dibujamos inicialmente el personaje
 
-/* Evento de botón de jugar */
-btnIniciar.addEventListener("click", () => {
+function inicializarElementos() {
   inicializarVariables(); // Inicializamos variables en cada click
   limpiarCanvas(); // Limpiamos el Canvas
   detectarResolucion(); // Detectamos la resolución actual
   lineasLetras.innerHTML = ""; // Limpiamos las líneas de letras existentes
   letrasErroneas.innerHTML = ""; // Limpiamos las letras erroneas
-
+}
+function elegirPalabraAleatoria() {
   let random = Math.ceil(Math.random() * palabras.length - 1); // Generamos un número aleatorio entre 0 y la longitud -1 del arreglo de palabras
   palabra = palabras[random].toUpperCase(); // Se elige una palabra del array en base al número aleatorio
+}
 
+function inicioJuego() {
+  inicializarElementos();
+  elegirPalabraAleatoria();
   letrasPorEncontrar = palabra.length;
   let i = 0; // Inicializamos iterador
   console.log(letrasPorEncontrar);
@@ -73,6 +79,16 @@ btnIniciar.addEventListener("click", () => {
       });
     }
   }
+}
+
+/* Evento de botón de jugar */
+btnIniciar.addEventListener("click", () => {
+  inicioJuego();
+});
+
+btnModal.addEventListener("click", () => {
+  modal.close();
+  inicioJuego();
 });
 
 function detectarResolucion() {
@@ -160,10 +176,32 @@ function mostrarResultado(encontrado, caracter) {
 }
 
 function ganar() {
-  console.log("Ganaste");
+  // document.querySelector(".resultadofinal").textContent = "Has ganado";
+  // crearModal();
+  agregarAModal("¡Has ganado!", "Felicidades, has ganado esta ronda.");
+  modal.showModal();
+
   finJuego = true;
 }
 function perder() {
-  console.log("Perdiste");
+  agregarAModal(
+    "¡Has perdido!",
+    "Has perdido, la palabra correcta era " + palabra
+  );
+  modal.showModal();
+  // document.querySelector(".resultadofinal").textContent =
+  //   "Has perdido, la palabra era " + palabra;
+
   finJuego = true;
+}
+
+function agregarAModal(titulo, texto) {
+  const tituloModal = document.createElement("h2");
+  const parrafoModal = document.createElement("p");
+  tituloModal.textContent = titulo;
+  tituloModal.classList = "titulo-modal";
+  parrafoModal.textContent = texto;
+  parrafoModal.classList = "texto-modal";
+  modal.replaceChild(tituloModal, document.querySelector(".titulo-modal"));
+  modal.replaceChild(parrafoModal, document.querySelector(".texto-modal"));
 }

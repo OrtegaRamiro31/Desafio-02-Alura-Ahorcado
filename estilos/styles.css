@@ -31,7 +31,7 @@ body {
 }
 
 .contenedor-logo {
-  margin: 5rem;
+  margin: 2rem 0 2rem 5rem;
 }
 
 .contenedor-botones-principales {
@@ -159,14 +159,18 @@ body {
 }
 
 /** nuevojuego.html **/
-.contenedor-juego {
+/* .contenedor-juego {
   height: 70rem;
-}
-.canva-ahorcado {
-  height: 80%;
+} */
+/* .canvas-resultado {
+  display: grid;
+  grid-template-columns: 90% 10%;
+} */
+
+/* .canva-ahorcado {
   width: 100%;
-  /* background-color: red; */
-}
+} */
+
 .lineas-letras {
   display: flex;
   flex-direction: row;
