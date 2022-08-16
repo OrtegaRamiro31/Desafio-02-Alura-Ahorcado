@@ -159,17 +159,9 @@ body {
 }
 
 /** nuevojuego.html **/
-/* .contenedor-juego {
-  height: 70rem;
-} */
-/* .canvas-resultado {
-  display: grid;
-  grid-template-columns: 90% 10%;
-} */
-
-/* .canva-ahorcado {
+.canva-ahorcado {
   width: 100%;
-} */
+}
 
 .lineas-letras {
   display: flex;
